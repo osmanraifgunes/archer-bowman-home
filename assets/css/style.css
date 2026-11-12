@@ -95,7 +95,35 @@ a:hover { color: var(--ink); }
 
 /* ---- hero ---- */
 .hero { padding: 40px 0 70px; text-align: center; }
-.hero h1 { font-size: clamp(44px, 9vw, 92px); line-height: 1; margin: 10px 0 26px; }
+.hero h1 { font-size: clamp(40px, 9vw, 92px); line-height: 1; margin: 10px 0 30px; }
+/* wooden title sign, like the LEVELS / SHOP plaques in the game */
+.hero h1.toon {
+  display: inline-block; position: relative; z-index: 0; max-width: 100%;
+  padding: .2em .55em .28em;
+  background:
+    repeating-linear-gradient(180deg, transparent 0 calc(33.333% - 3px), rgba(122, 63, 23, .38) calc(33.333% - 3px) 33.333%),
+    repeating-linear-gradient(90deg, transparent 0 37%, rgba(122, 63, 23, .22) 37% calc(37% + 2px), transparent calc(37% + 2px) 71%, rgba(122, 63, 23, .18) 71% calc(71% + 2px), transparent calc(71% + 2px) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, .06), transparent 25%, rgba(255, 255, 255, .07) 55%, rgba(0, 0, 0, .06)),
+    linear-gradient(180deg, #ec9148, #dc7934 50%, #c9682a);
+  border: 6px solid var(--log);
+  border-radius: 22px;
+  box-shadow:
+    inset 0 0 0 3px #f2a865, inset 0 -6px 0 rgba(0, 0, 0, .14),
+    0 8px 0 rgba(74, 35, 12, .5), 0 20px 36px rgba(0, 0, 0, .22);
+}
+/* rope bindings on both ends */
+.hero h1.toon::before, .hero h1.toon::after {
+  content: ""; position: absolute; z-index: -1; top: -14px; bottom: -14px; width: 14px;
+  background: repeating-linear-gradient(160deg, #f6dcae 0 5px, #d9a66b 5px 8px);
+  border: 2px solid #8a4f22; border-radius: 7px;
+  box-shadow: 0 3px 0 rgba(74, 35, 12, .35);
+}
+.hero h1.toon::before { left: 7%; transform: rotate(-6deg); }
+.hero h1.toon::after { right: 7%; transform: rotate(6deg); }
+@media (max-width: 640px) {
+  .hero h1.toon { padding: .2em .35em .26em; border-width: 4px; border-radius: 16px; }
+  .hero h1.toon::before, .hero h1.toon::after { width: 10px; top: -10px; bottom: -10px; }
+}
 .hero .tagline { font-size: clamp(22px, 3.6vw, 34px); margin: 0 0 22px; }
 .hero .stores { justify-content: center; margin-bottom: 34px; }
 .hero-art { max-width: 960px; margin: 0 auto; border-radius: 22px; overflow: hidden; border: 6px solid var(--log); box-shadow: 0 10px 0 rgba(74,35,12,.35), 0 24px 60px rgba(0,0,0,.25); }
