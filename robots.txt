@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://osmanraifgunes.github.io/archer-bowman-home/sitemap.xml
